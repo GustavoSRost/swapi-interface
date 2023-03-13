@@ -1,0 +1,306 @@
+* {
+  color: #fff;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-image: url(../assets/bg1.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #000;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #f00;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+
+}
+
+h1,
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  margin: 0;
+}
+
+
+#page {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.55;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.redes ul,
+.routes {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 3rem;
+  background-color: transparent;
+  color: #fff;
+  z-index: 1;
+  position: relative;
+}
+
+header a {
+  position: relative;
+}
+
+header a:not(.logo):hover {
+  color: rgb(255, 27, 27);
+}
+
+header a:not(.logo):hover::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #f00;
+  border-radius: 10px;
+  animation: kf1 .3s ease-in-out;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+header a:not(.logo)[class*='active'] {
+  color: #f00;
+}
+
+header a:not(.logo)[class*='active']::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #f00;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+footer {
+  height: 60px;
+  width: 100vw;
+  background-color: #000;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+
+}
+
+#logo {
+  background-image: url(../assets/star-wars.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 125px;
+  text-indent: -9999px;
+  aspect-ratio: 2/1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container .content-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 550px;
+  padding: 1rem;
+  background-color: transparent;
+  grid-column: 1 / 3;
+  color: #fff;
+  z-index: 1;
+}
+
+.container .content-text button {
+  background-color: #f00;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+#home.container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: none;
+  overflow: visible;
+  z-index: 0;
+  position: relative;
+  transform: translate(270px, 160px);
+  ;
+}
+
+#home #about {
+  width: 100%;
+  padding: 3rem;
+  z-index: 1;
+  position: relative;
+}
+
+#home #video-section {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 1.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+#home #video-section iframe {
+  grid-column: 1/3;
+}
+
+main {
+  margin: 20px 0;
+}
+
+.loading {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #f00;
+  border-color: #f00 transparent #f00 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+#personagem-list-cp ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+#personagem-list-cp ul li {
+  width: 18%;
+  aspect-ratio: 1/1;
+}
+
+#personagem-list-cp ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.7;
+}
+
+#personagem-list-cp ul li a:hover {
+  opacity: 1;
+  transition: all .3s;
+}
+
+#personagem-list-cp ul li img {
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: auto;
+  aspect-ratio: 1/2;
+  border: 2px solid #fff;
+
+}
+
+
+
+/* KEYFRAMES */
+@keyframes kf1 {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Path: swapi-app/src/css/estilo.css */
