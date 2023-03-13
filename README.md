@@ -1,4 +1,5 @@
-# swapi-app
+Interface da API SWAPI (https://swapi.dev/) utilizando Vue.js e CSS.
+
 
 ## Project setup
 ```
