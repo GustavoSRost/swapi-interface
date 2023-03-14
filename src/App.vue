@@ -20,6 +20,22 @@ export default {
     HeaderComponent,
     FooterComponent,
   },
+  methods: {
+    addBodyClass() {
+      const routeName = this.$route.name;
+      document.body.className = "";
+      if (this.$route.params.id != undefined) {
+        document.body.classList.add(this.$route.params.id + "-" + routeName);
+      } else {
+        document.body.classList.add(routeName);
+      }
+    },
+  },
+  watch: {
+    $route() {
+      this.addBodyClass();
+    },
+  },
 };
 </script>
 

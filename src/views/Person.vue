@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <div v-if="loading" class="loading"></div>
+  <section v-else>
     <PersonInfo :person="personDATA" />
   </section>
 </template>
@@ -14,11 +15,13 @@ export default {
   data() {
     return {
       personDATA: {},
+      loading: false,
     };
   },
 
   methods: {
     async getPerson() {
+      this.loading = true;
       const localPeople = JSON.parse(window.localStorage.getItem("people"));
       const getIDfromName = localPeople.results.filter(name => {
         return name.name.toLowerCase().replaceAll(" ", "-") === this.$route.params.id
@@ -33,6 +36,7 @@ export default {
       } else {
         this.personDATA = JSON.parse(window.localStorage.getItem(getIDfromName[0].name));
       }
+      this.loading = false;
     },
   },
   mounted() {
