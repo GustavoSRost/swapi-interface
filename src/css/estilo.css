@@ -4,6 +4,7 @@
   list-style: none;
   text-decoration: none;
   margin: 0;
+  font-family: 'Rubik', sans-serif;
 }
 
 body {
@@ -19,18 +20,30 @@ body {
   position: relative;
 }
 
-body.planets {
-  background-image: url(../assets/bg2.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-size: initial;
-  background-repeat: repeat;
-  overflow-x: hidden;
-  position: relative;
-}
 
 body.luke-skywalker-person {
   background-image: url(../assets/luke-skywalker.png);
+}
+
+body.c-3po-person {
+  background-image: url(../assets/c-3po.png);
+}
+
+body.r2-d2-person {
+  background-image: url(../assets/r2-d2-bg.png);
+}
+
+body.darth-vader-person {
+  background-image: url(../assets/darth-vader.png);
+}
+
+body.leia-organa-person {
+  background-image: url(../assets/leia-organa.png);
+  background-position-y: -50px !important;
+}
+
+body.owen-lars-person {
+  background-image: url(../assets/owen-lars.png);
 }
 
 body[class*='-person'] {
@@ -40,6 +53,15 @@ body[class*='-person'] {
   background-attachment: fixed;
   background-size: cover;
   background-position-y: -20px;
+}
+
+.darth-vader-person a:hover,
+.darth-vader-person a[class*="active"] {
+  color: red !important;
+}
+
+.darth-vader-person a::after {
+  background-color: red !important;
 }
 
 .luke-skywalker-person a:hover,
@@ -65,23 +87,23 @@ body.luke-skywalker-person::-webkit-scrollbar-thumb {
   background-color: greenyellow !important;
 }
 
+body.darth-vader-person::-webkit-scrollbar-thumb {
+  background-color: red !important;
+}
+
 
 
 body::-webkit-scrollbar {
   width: 5px;
-  /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
   background: #000;
-  /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #f00;
-  /* color of the scroll thumb */
+  background-color: #45a6ef;
   border-radius: 20px;
-
 }
 
 h1,
@@ -123,6 +145,7 @@ body::after {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 0;
+  min-height: calc(100vh - 236px);
 }
 
 .redes ul,
@@ -152,7 +175,7 @@ header a {
 }
 
 header a:not(.logo):hover {
-  color: rgb(255, 27, 27);
+  color: #45a6ef;
 }
 
 header a:not(.logo):hover::after {
@@ -160,7 +183,7 @@ header a:not(.logo):hover::after {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: #f00;
+  background-color: #45a6ef;
   border-radius: 10px;
   animation: kf1 .3s ease-in-out;
   position: absolute;
@@ -169,7 +192,7 @@ header a:not(.logo):hover::after {
 }
 
 header a:not(.logo)[class*='active'] {
-  color: #f00;
+  color: #45a6ef;
 }
 
 header a:not(.logo)[class*='active']::after {
@@ -177,7 +200,7 @@ header a:not(.logo)[class*='active']::after {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: #f00;
+  background-color: #45a6ef;
   backdrop-filter: blur(10px);
   border-radius: 10px;
   position: absolute;
@@ -195,7 +218,7 @@ footer {
   align-items: center;
   color: #fff;
   font-size: 12px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   z-index: 2;
 
@@ -222,16 +245,36 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  min-height: 550px;
+  min-height: 715px;
   padding: 1rem;
+  gap: 1rem;
   background-color: transparent;
   grid-column: 1 / 3;
   color: #fff;
   z-index: 1;
 }
 
+.home {
+  overflow: hidden;
+}
+
+.home .swiper-slide-active {
+  animation: opacityTransition 2s ease-in-out;
+  opacity: 1;
+}
+
+.home .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0;
+  visibility: hidden;
+  animation: opacityTransition 2s ease-in-out;
+}
+
+#home section {
+  min-height: 700px;
+}
+
 .container .content-text button {
-  background-color: #f00;
+  background-color: rgb(69, 166, 239);
   border: 0;
   border-radius: 5px;
   padding: 10px 20px;
@@ -261,6 +304,7 @@ footer {
   padding: 1.5rem;
   z-index: 1;
   position: relative;
+  gap: 1rem;
 }
 
 #home #video-section iframe {
@@ -328,6 +372,23 @@ main {
 
 }
 
+[class*='-person'] .container {
+  position: relative;
+}
+
+[class*='-person'] .container .bk-home {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: #fff;
+}
+
+
+
+.bk-home::before {
+  content: "<<";
+}
+
 [class*='-person'] .container * {
   color: #000;
 }
@@ -358,17 +419,100 @@ main {
 
 [class*='-person'] .person-detail .person-img img {
   max-width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  display: block;
 }
 
 [class*='-person'] .person-detail .info-person ul {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   padding: 1rem;
   gap: 1rem;
 }
 
 [class*='-person'] .person-detail .mv-person {
   grid-column: 2;
+}
+
+.swiper-initialized {
+  position: relative;
+}
+
+.swiper-pagination-vertical.swiper-pagination-bullets,
+.swiper-vertical>.swiper-pagination-bullets {
+  top: 270px !important;
+  right: 0 !important;
+}
+
+.swiper-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
+  background-color: #fff;
+}
+
+.swiper-slide section {
+  position: relative;
+}
+
+.swiper-slide:not([data-swiper-slide-index="2"]) section::before {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 50.2%;
+  width: 20px;
+  height: 20px;
+  border-left: 2px #fff solid;
+  border-bottom: 2px #fff solid;
+  transform: rotate(315deg);
+  animation: animaarrow 1.5s infinite;
+  opacity: 0;
+
+}
+
+.swiper-slide:not([data-swiper-slide-index="2"]) section::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 8px;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  border-left: 2px #fff solid;
+  border-bottom: 2px #fff solid;
+  transform: rotate(315deg);
+  animation: animaarrow 1.5s infinite;
+  opacity: 0;
+
+}
+
+.starships .swiper>.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.starships .swiper>.swiper-wrapper a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.5;
+  transition: all .3s;
+}
+
+.starships .swiper>.swiper-wrapper a:hover {
+  opacity: 1;
+  transition: all .3s;
+}
+
+.starships .swiper>.swiper-wrapper a:hover img {
+  transform: scale(1.3);
+  transition: all .3s;
+}
+
+.starships .swiper {
+  overflow: visible;
 }
 
 /* KEYFRAMES */
@@ -384,6 +528,16 @@ main {
   }
 }
 
+@keyframes opacityTransition {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -394,5 +548,16 @@ main {
   }
 }
 
+@keyframes animaarrow {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) rotate(315deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(25px) rotate(315deg);
+  }
+}
 
 /* Path: swapi-app/src/css/estilo.css */

@@ -40,7 +40,7 @@ export default {
     },
   },
   mounted() {
-    this.getPerson();
+    if (this.$route.name === "person") this.getPerson();
   },
   watch: {
     $route: "getPerson",

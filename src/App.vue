@@ -41,5 +41,6 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 @import url(@/css/estilo.css);
 </style>

@@ -2,6 +2,7 @@
   <main class="container">
     <div v-if="loading" class="loading"></div>
     <div v-else>
+      <router-link :to="{ name: 'home' }" class="bk-home"> Back to Home</router-link>
       <div v-if="this.$route.path === '/people'">
         <h2>Select a character to see more details:</h2>
         <list-perso :people="people"></list-perso>
