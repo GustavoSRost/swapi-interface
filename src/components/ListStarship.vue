@@ -8,6 +8,7 @@
         :slidesPerView="3"
         :spaceBetween="70"
         :loop="true"
+        v-if="starships.results.length > 3"
       >
         <swiper-slide
           v-for="(starship, key) in starships.results"
@@ -48,7 +49,7 @@
         you're in the heat of battle or navigating through hyperspace.
       </p>
     </div>
-    <router-link :to="{ name: 'home' }">Back to Home</router-link>
+    <router-link :to="{ name: 'home' }" class="bk-home">Back to Home</router-link>
   </main>
 </template>
 

@@ -2,9 +2,11 @@
   <main class="container">
     <div v-if="loading" class="loading"></div>
     <div v-else>
-      <h2 v-if="this.$route.path === '/planets'">
-        Selecione um personagem para ver mais detalhes sobre ele:
-      </h2>
+      <div v-if="this.$route.path === '/planets'">
+        <router-link :to="{ name: 'home' }" class="bk-home"> Back to Home</router-link>
+        <h2>Planets</h2>
+        <list-planet :planets="planets"></list-planet>
+      </div>
     </div>
 
     <router-view></router-view>
@@ -12,13 +14,17 @@
 </template>
 
 <script>
+import ListPlanet from "@/components/ListPlanet.vue";
 export default {
   name: "PlanetsView",
   data() {
     return {
-      planets: [],
+      planets: {},
       loading: false,
     };
+  },
+  components: {
+    ListPlanet,
   },
 
   methods: {

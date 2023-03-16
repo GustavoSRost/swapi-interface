@@ -2,14 +2,17 @@
   <main class="container">
     <div v-if="loading" class="loading"></div>
     <div v-else>
-      <h1>Starships</h1>
-      <list-starship :starships="starships"></list-starship>
+      <div v-if="this.$route.path === '/starships'">
+        <h1>Starships</h1>
+        <list-starship :starships="starships"></list-starship>
+      </div>
+      <router-view></router-view>
     </div>
   </main>
 </template>
 
 <script>
-import ListStarship from "../components/ListStarship.vue";
+import ListStarship from "@/components/ListStarship.vue";
 export default {
   name: "StarshipsView",
   components: {
@@ -17,7 +20,7 @@ export default {
   },
   data() {
     return {
-      starships: [],
+      starships: {},
       loading: false,
     };
   },

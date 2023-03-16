@@ -28,7 +28,7 @@
               epic journey to a galaxy far, far away. May the Force be with you!
             </p>
             <button key="button" disabled="disabled">
-              <a href="sobre">See more</a>
+              <router-link to="/people">See more</router-link>
             </button>
           </div>
         </section>

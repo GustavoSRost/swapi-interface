@@ -73,10 +73,12 @@ export default {
     async getFilmData() {
       const movieList = this.person.films;
       if (movieList.length > 0) {
-        movieList.forEach(async movie => {
-          const fetchData = await fetch(movie);
-          const data = await fetchData.json();
-          this.movies.movieName.push(data.title);
+        movieList.forEach(movie => {
+          fetch(movie)
+            .then(response => response.json())
+            .then(data => {
+              this.movies.movieName.push(data.title);
+            });
         });
       }
     },
